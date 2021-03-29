@@ -12,5 +12,13 @@ public class AddressBookTest {
         List<AddressBookData> addressBookList=addressBook.readData();
         Assert.assertEquals(6,addressBookList.size());
     }
+
+    @Test
+    public void update_table_should_return_true(){
+        AddressBook addressBook=new AddressBook();
+        addressBook.updateData();
+        List<AddressBookData> addressBookList=addressBook.readData();
+        Assert.assertEquals(6,addressBookList.size());
+    }
 }
 
