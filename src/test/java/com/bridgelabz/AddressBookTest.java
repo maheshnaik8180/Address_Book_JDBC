@@ -50,5 +50,19 @@ public class AddressBookTest {
         List<AddressBookData> addressBookList=addressBook.returnValuesForApaticularDateRange(date);
         Assert.assertEquals(6,addressBookList.size());
     }
+
+    @Test
+    public void count_of_contacts_in_a_city() throws SQLException {
+        String city="kolhapur";
+        String result=addressBook.countofContactbyCity(city);
+        Assert.assertEquals("2",result);
+    }
+
+    @Test
+    public void count_of_contacts_in_a_state() throws SQLException {
+        String state="Maharashtra";
+        String result=addressBook.countByContactbyState(state);
+        Assert.assertEquals("5",result);
+    }
 }
 

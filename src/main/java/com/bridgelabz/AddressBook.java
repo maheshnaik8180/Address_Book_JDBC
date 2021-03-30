@@ -119,5 +119,48 @@ public class AddressBook {
         return addressBookList;
     }
 
+    public String countofContactbyCity(String city) throws SQLException {
+        Connection connection=this.getConnection();
+        String result=null;
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement= connection.prepareStatement("select count(*) from addressbook where city=? ; ");
+            preparedStatement.setString(1,city);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            connection.commit();
+            while (resultSet.next()){
+                result=resultSet.getString(1);
+                System.out.println(resultSet.getString(1));
+            }
+            return result;
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+            connection.rollback();
+        }
+        return result;
+    }
+
+    public String countByContactbyState(String state) throws SQLException {
+        Connection connection=this.getConnection();
+        String result=null;
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement= connection.prepareStatement("select count(*) from addressbook where state=? ; ");
+            preparedStatement.setString(1,state);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            connection.commit();
+            while (resultSet.next()){
+                result=resultSet.getString(1);
+                System.out.println(resultSet.getString(1));
+            }
+            return result;
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+            connection.rollback();
+        }
+        return result;
+
+    }
+
 
 }
