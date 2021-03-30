@@ -1,7 +1,6 @@
 package com.bridgelabz;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 public class AddressBook {
@@ -161,6 +160,29 @@ public class AddressBook {
         return result;
 
     }
-
+    public void insertNewContact(String firstname,String lastname,String address,String city,String state,int zip,int phonenumber,String email,String type, String addressbook, String entry_date) throws SQLException {
+        Connection connection=this.getConnection();
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement=connection.prepareStatement("insert into addressbook(First_Name,Last_Name," +
+                    "address,city,state,zip,phone_number,email_address,type,addressbook,entry_date) values(?,?,?,?,?,?,?,?,?,?,?); ");
+            preparedStatement.setString(1,firstname);
+            preparedStatement.setString(2,lastname);
+            preparedStatement.setString(3,address);
+            preparedStatement.setString(4,city);
+            preparedStatement.setString(5,state);
+            preparedStatement.setInt(6,zip);
+            preparedStatement.setInt(7,phonenumber);
+            preparedStatement.setString(8,email);
+            preparedStatement.setString(9,type);
+            preparedStatement.setString(10,addressbook);
+            preparedStatement.setDate(11,Date.valueOf(entry_date));
+            preparedStatement.executeUpdate();
+            connection.commit();
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+            connection.rollback();
+        }
+    }
 
 }
