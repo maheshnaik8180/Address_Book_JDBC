@@ -1,4 +1,7 @@
 package com.bridgelabz;
+
+import java.sql.Date;
+
 public class AddressBookData {
     private String FirstName;
     private String LastName;
@@ -6,19 +9,34 @@ public class AddressBookData {
     private String City;
     private String State;
     private int Zip;
-    private int Phone_Number;
+    private String Phone_Number;
     private String Email_Address;
+    private String type;
+    private String AddressBook;
+    private Date entry_date;
 
-    public AddressBookData(int id,String firstName, String lastName, String address, String city , String state,int zip, String email){
+
+    public AddressBookData(String firstName, String lastName, String address, String city , String state,int zip, String phoneNumber, String email,int ID,String type, String AddressBook,Date entry_date){
+
         this.FirstName = firstName;
         this.LastName = lastName;
         this.Address = address;
         this.City = city;
         this.State = state;
         this.Zip = zip;
-        //this.Phone_Number = phoneNumber;
+        this.Phone_Number = phoneNumber;
         this.Email_Address = email;
+        this.type = type;
+        this.AddressBook = AddressBook;
+        this.entry_date = entry_date;
     }
+
+
+
+
+
+   // public AddressBookData(int anInt, String string, String string1, String string2, String string3, String string4, int anInt1, String string5, String string6, String string7, String string8, Date date) {
+     //   }
 
     public String getFirstName() {
         return FirstName;
@@ -80,12 +98,12 @@ public class AddressBookData {
     }
 
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return Phone_Number;
     }
 
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.Phone_Number = phoneNumber;
     }
 
@@ -97,5 +115,46 @@ public class AddressBookData {
 
     public void setEmail(String email) {
         this.Email_Address = email;
+    }
+
+    public Date getDate() {
+        return entry_date;
+    }
+
+    public void setDate(Date date) {
+        this.entry_date = entry_date;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getAddressBook() {
+        return AddressBook;
+    }
+
+    public void setAddressBook(String addressBook) {
+        AddressBook = addressBook;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "AddressBookData{" +
+                "firstName='" + FirstName + '\'' +
+                ", lastName='" + LastName + '\'' +
+                ", address='" + Address + '\'' +
+                ", city='" + City + '\'' +
+                ", state='" + State + '\'' +
+                ", zip=" + Zip +
+                ", phoneNumber=" + Phone_Number +
+                ", email='" + Email_Address + '\'' +
+                ", date='" + entry_date + '\'' +
+                '}';
     }
 }
