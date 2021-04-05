@@ -16,7 +16,7 @@ public class AddressBookData {
     private Date entry_date;
 
 
-    public AddressBookData(String firstName, String lastName, String address, String city , String state,int zip, String phoneNumber, String email,int ID,String type, String AddressBook,Date entry_date){
+    public AddressBookData(String firstName, String lastName, String address, String city , String state,int zip, String phoneNumber, String email,String type, String AddressBook,Date entry_date){
 
         this.FirstName = firstName;
         this.LastName = lastName;
@@ -31,11 +31,12 @@ public class AddressBookData {
         this.entry_date = entry_date;
     }
 
+   // public AddressBookData(String mandar, String raote, String backBay, String mumbai, String maharastra, int zip, int i, String email, Date valueOf) {
+
+    //}
 
 
-
-
-   // public AddressBookData(int anInt, String string, String string1, String string2, String string3, String string4, int anInt1, String string5, String string6, String string7, String string8, Date date) {
+    // public AddressBookData(int anInt, String string, String string1, String string2, String string3, String string4, int anInt1, String string5, String string6, String string7, String string8, Date date) {
      //   }
 
     public String getFirstName() {
