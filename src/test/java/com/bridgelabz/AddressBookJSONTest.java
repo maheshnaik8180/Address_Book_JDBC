@@ -9,6 +9,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.Date;
+
+
 public class AddressBookJSONTest {
     @Before
     public void setup(){
@@ -23,10 +26,10 @@ public class AddressBookJSONTest {
     }
 
     public Response addContactToJsonServer(AddressBookData restAssureBookData){
-        String contac=new Gson().toJson(restAssureBookData);
+        String contacts=new Gson().toJson(restAssureBookData);
         RequestSpecification requestSpecification=RestAssured.given();
         requestSpecification.header("Content-Type","application/json");
-        requestSpecification.body(contac);
+        requestSpecification.body(contacts);
         return requestSpecification.post("/contacts");
     }
 
@@ -37,4 +40,17 @@ public class AddressBookJSONTest {
         Assert.assertEquals(4,restAssureBookData.length);
 
     }
+
+    @Test
+    public void whenNewContact_isAdded_Sholdreturn201ResponseCode(){
+        AddressBookData[] jsonServerBookData=getContactList();
+
+        AddressBookData jsonServerBookData1=new AddressBookData("santosh","naik","nesari","gad","maharashtra",2343234,"998292981","santosh@gmail.com","family","contact1", Date.valueOf("23-4-2021"));
+        Response response=addContactToJsonServer(jsonServerBookData1);
+        int statusCode= response.statusCode();
+
+        Assert.assertEquals(201,statusCode);
+    }
+
+
 }
