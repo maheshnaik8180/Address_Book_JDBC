@@ -91,19 +91,15 @@ public class AddressBookTest {
 
     @Test
     public void insert_using_threads() throws SQLException {
+
         List<AddressBookData> addressBookDataList=new ArrayList<>();
-
         addressBookDataList.add(new AddressBookData("Amit","patil","karad","Satara","India",434321,"934567890","patilamit@gmail.com","Family", "contact8",Date.valueOf("2020-03-18")));
-        addressBookDataList.add(new AddressBookData("ravi","patil","BackBay","Mumbai","Maharastra",400009,"885542911","ravi@gmail.com","Friend", "Contact9",Date.valueOf("2021-05-11")));
-
+        addressBookDataList.add(new AddressBookData("ravi","patil","waghaland","Pune","Maharastra",412207,"885542911","ravi@gmail.com","Friend", "Contact9",Date.valueOf("2021-05-11")));
         Instant start=Instant.now();
         addressBook.addEmployeeToPayrollWithThreadsToDataBase(addressBookDataList);
         Instant end=Instant.now();
 
         System.out.println("Duration of non thread process is: "+ Duration.between(start,end));
-
-//        List<AddressBookData> bookData=addressBook.readData();
-//        Assert.assertEquals(11,bookData.size());
 
     }
 }
