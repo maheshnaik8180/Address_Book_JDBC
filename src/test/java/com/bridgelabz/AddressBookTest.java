@@ -90,7 +90,7 @@ public class AddressBookTest {
     }
 
     @Test
-    public void insert_using_threads() throws SQLException {
+    public void insert_using_threads() throws SQLException  {
 
         List<AddressBookData> addressBookDataList=new ArrayList<>();
         addressBookDataList.add(new AddressBookData("Amit","patil","karad","Satara","India",434321,"934567890","patilamit@gmail.com","Family", "contact8",Date.valueOf("2020-03-18")));
